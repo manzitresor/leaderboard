@@ -1,0 +1,85 @@
+body {
+  background-color: white;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.recent-scores {
+  width: 50%;
+}
+
+.scores-container {
+  border: 2px solid black;
+}
+
+.heading3 {
+  color: gray;
+  font-size: 28px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#refresh {
+  height: 25px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+#refresh:hover {
+  color: white;
+  background-color: gray;
+  border: none;
+}
+
+.score {
+  background-color: white;
+  padding: 5px 5px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.score:nth-child(odd) {
+  background-color: rgb(185, 177, 177);
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+#form input {
+  width: 100%;
+  padding: 7px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+#submit {
+  background-color: white;
+  padding: 5px;
+  width: 20%;
+  margin: 5px 40%;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  color: white;
+  background-color: gray;
+  border: none;
+}
