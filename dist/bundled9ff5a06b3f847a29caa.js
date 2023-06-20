@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/scores.js":
+/*!*******************************!*\
+  !*** ./src/modules/scores.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var scoreContainer = document.querySelector('.scores-container');
+var leaderBoard = [{
+  name: 'manzi',
+  scores: 12
+}, {
+  name: 'Tresor',
+  scores: 15
+}, {
+  name: 'saphir',
+  scores: 25
+}, {
+  name: 'Umutesi',
+  scores: 25
+}];
+function getData() {
+  var scores = '';
+  leaderBoard.forEach(function (element) {
+    setTimeout(function () {
+      scores += "\n    <div class=\"score\">".concat(element.name, ":").concat(element.scores, "</div>\n    ");
+      scoreContainer.innerHTML = scores;
+    }, 1000);
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getData);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/styles.css":
 /*!************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/styles.css ***!
@@ -22,8 +59,90 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `body {
-  background-color: blue;
-}`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,sBAAA;AACF","sourcesContent":["body {\r\n  background-color: blue;\r\n}\r\n"],"sourceRoot":""}]);
+  background-color: white;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.recent-scores {
+  width: 50%;
+}
+
+.scores-container {
+  border: 2px solid black;
+}
+
+.heading3 {
+  color: gray;
+  font-size: 28px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#refresh {
+  height: 25px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+#refresh:hover {
+  color: white;
+  background-color: gray;
+  border: none;
+}
+
+.score {
+  background-color: white;
+  padding: 5px 5px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.score:nth-child(odd) {
+  background-color: rgb(185, 177, 177);
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+#form input {
+  width: 100%;
+  padding: 7px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+#submit {
+  background-color: white;
+  padding: 5px;
+  width: 20%;
+  margin: 5px 40%;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  color: white;
+  background-color: gray;
+  border: none;
+}`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,uBAAA;AACF;;AAEA;EACE,aAAA;EACA,6BAAA;EACA,aAAA;AACF;;AAEA;EACE,UAAA;AACF;;AAEA;EACE,uBAAA;AACF;;AAEA;EACE,WAAA;EACA,eAAA;AACF;;AAEA;EACE,aAAA;EACA,mBAAA;EACA,SAAA;AACF;;AAEA;EACE,YAAA;EACA,uBAAA;EACA,uBAAA;EACA,eAAA;AACF;;AAEA;EACE,YAAA;EACA,sBAAA;EACA,YAAA;AACF;;AAEA;EACE,uBAAA;EACA,gBAAA;EACA,0BAAA;EACA,mBAAA;EACA,mBAAA;EACA,iBAAA;AACF;;AAEA;EACE,oCAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,YAAA;AACF;;AAEA;EACE,WAAA;EACA,YAAA;EACA,gBAAA;EACA,kBAAA;EACA,eAAA;EACA,0BAAA;AACF;;AAEA;EACE,uBAAA;EACA,YAAA;EACA,UAAA;EACA,eAAA;EACA,kBAAA;EACA,eAAA;EACA,eAAA;AACF;;AAEA;EACE,YAAA;EACA,sBAAA;EACA,YAAA;AACF","sourcesContent":["body {\r\n  background-color: white;\r\n}\r\n\r\n.main-container {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  padding: 10px;\r\n}\r\n\r\n.recent-scores {\r\n  width: 50%;\r\n}\r\n\r\n.scores-container {\r\n  border: 2px solid black;\r\n}\r\n\r\n.heading3 {\r\n  color: gray;\r\n  font-size: 28px;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 30px;\r\n}\r\n\r\n#refresh {\r\n  height: 25px;\r\n  border: 2px solid black;\r\n  background-color: white;\r\n  cursor: pointer;\r\n}\r\n\r\n#refresh:hover {\r\n  color: white;\r\n  background-color: gray;\r\n  border: none;\r\n}\r\n\r\n.score {\r\n  background-color: white;\r\n  padding: 5px 5px;\r\n  text-transform: capitalize;\r\n  font-weight: bolder;\r\n  letter-spacing: 1px;\r\n  line-height: 20px;\r\n}\r\n\r\n.score:nth-child(odd) {\r\n  background-color: rgb(185, 177, 177);\r\n}\r\n\r\n#form {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 400px;\r\n}\r\n\r\n#form input {\r\n  width: 100%;\r\n  padding: 7px;\r\n  margin-top: 10px;\r\n  border-radius: 5px;\r\n  font-size: 15px;\r\n  text-transform: capitalize;\r\n}\r\n\r\n#submit {\r\n  background-color: white;\r\n  padding: 5px;\r\n  width: 20%;\r\n  margin: 5px 40%;\r\n  border-radius: 5px;\r\n  font-size: 18px;\r\n  cursor: pointer;\r\n}\r\n\r\n#submit:hover {\r\n  color: white;\r\n  background-color: gray;\r\n  border: none;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -551,9 +670,12 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ "./src/styles/styles.css");
+/* harmony import */ var _modules_scores__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scores */ "./src/modules/scores.js");
 
+
+(0,_modules_scores__WEBPACK_IMPORTED_MODULE_1__["default"])();
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundledd35475c2af674b93b3b.js.map
+//# sourceMappingURL=bundled9ff5a06b3f847a29caa.js.map
