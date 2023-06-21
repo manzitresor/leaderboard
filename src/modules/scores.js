@@ -1,35 +1,31 @@
 const scoreContainer = document.querySelector('.scores-container');
 
-const leaderBoard = [
-  {
-    name: 'manzi',
-    scores: 12,
-  },
-  {
-    name: 'Tresor',
-    scores: 15,
-  },
-  {
-    name: 'saphir',
-    scores: 25,
-  },
-  {
-    name: 'Umutesi',
-    scores: 25,
-  },
+const setScore = async (name, score) => {
+  try {
+    await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/HKHvD4XLI9reQG9q3nRW/scores/', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ user: name, score }),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-];
-
-function getData() {
+const getScores = async () => {
+  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/HKHvD4XLI9reQG9q3nRW/scores/');
+  const json = await response.json();
+  const data = json.result;
   let scores = '';
-  leaderBoard.forEach((element) => {
-    setTimeout(() => {
-      scores += `
-    <div class="score">${element.name}:${element.scores}</div>
+  data.forEach((res) => {
+    scores += `
+    <div class="score">${res.user}:${res.score}</div>
     `;
-      scoreContainer.innerHTML = scores;
-    }, 1000);
   });
-}
 
-export default getData;
+  scoreContainer.innerHTML = scores;
+};
+
+module.exports = { setScore, getScores };
