@@ -25,11 +25,26 @@ function getData() {
   leaderBoard.forEach((element) => {
     setTimeout(() => {
       scores += `
-    <div class="score">${element.name}:${element.scores}</div>
+    <div class="score">${element.name} : ${element.scores}</div>
     `;
       scoreContainer.innerHTML = scores;
     }, 1000);
   });
 }
 
-export default getData;
+function setData(score) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      leaderBoard.push(score);
+      const error = false;
+      if (!error) {
+        resolve();
+      } else {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject('error');
+      }
+    }, 1000);
+  });
+}
+
+module.exports = { getData, setData };
