@@ -1,4 +1,5 @@
 import './styles/styles.css';
+import './styles/bootstrap.css';
 import * as data from './modules/scores';
 
 data.getScores();

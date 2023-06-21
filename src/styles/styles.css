@@ -2,6 +2,10 @@ body {
   background-color: white;
 }
 
+.main {
+  height: 100vh;
+}
+
 .main-container {
   display: flex;
   justify-content: space-around;
@@ -28,10 +32,11 @@ body {
 }
 
 #refresh {
-  height: 25px;
-  border: 2px solid black;
+  height: 35px;
+  border: 2px solid rgb(221, 218, 218);
   background-color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 #refresh:hover {
