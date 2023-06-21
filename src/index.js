@@ -1,18 +1,21 @@
 import './styles/styles.css';
 import * as data from './modules/scores';
 
-async function display() {
-  await data.setData({ name: 'manzi2', scores: 25 });
-  data.getData();
-}
+data.getScores();
 
-display();
-// const promise = fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
-// Promise.all([promise]).then((values) => console.log(values));
-async function fetchUser() {
-  const users = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data = await users.json();
-  console.log(data);
-}
+const submitBtn = document.getElementById('submit');
+const refreshBtn = document.getElementById('refresh');
 
-fetchUser();
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name');
+  const score = document.getElementById('score');
+  data.setScore(name.value, score.value);
+  name.value = '';
+  score.value = '';
+});
+
+refreshBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  data.getScores();
+});
